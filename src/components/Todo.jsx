@@ -29,7 +29,16 @@ const Todo = () => {
       <Title title='Tasks' id='todoTitle'/> 
       <AddTaskButton/>
       <div className='tasksContainer'>
-        {tasks.map((task)=>(<Task taskName={task.title} taskDesc={task.description} key={task.id} id={task.id} onDeleteClick={deleteTask}/>))}
+        {tasks.length > 0 
+        ? 
+          tasks.map((task)=>(<Task taskName={task.title} taskDesc={task.description} key={task.id} id={task.id} onDeleteClick={deleteTask}/>))
+        :
+          <div className='taskBox emptyTask'>
+            <div className='task' style={{justifyContent: 'center', fontWeight: 'bold', fontSize:'larger'}}>
+              No tasks :(
+            </div>
+          </div>
+        }
       </div>
     </section>
   )

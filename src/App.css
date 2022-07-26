@@ -129,6 +129,12 @@ section {
 #todoTitle {
     margin-bottom: 4vh;
 }
+.emptyTask {
+    opacity: 0.2;
+    background-color: transparent;
+    border: 2px dashed white;
+    user-select: none;
+}
 
 /*///////////////////////  TIMER  ///////////////////////////////////////////////////////////////////////////////////////*/
 #pomodoroTitle {

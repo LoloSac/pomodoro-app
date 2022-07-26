@@ -14,7 +14,7 @@ const Task = ({taskName, taskDesc, onDeleteClick, id}) => {
                 : <IoSquareOutline className="checkbox" style={{cursor:'pointer'}}/>}
                 </div>
 
-                <div className="taskText" style={isFinished ?{textDecoration: 'line-through', opacity: '0.5'}:null}>
+                <div className="taskText" style={isFinished ?{textDecoration: 'line-through', opacity: '0.5'}:{}}>
                     <p>
                         <span style={{fontSize:'larger', fontWeight: 'bold'}}>{taskName}</span>
                         <br/>
@@ -22,8 +22,8 @@ const Task = ({taskName, taskDesc, onDeleteClick, id}) => {
                     </p>
                 </div>
 
-                <div style={{display:'flex', alignItems: 'center'}} onClick={()=>onDeleteClick(id)}>
-                    <IoTrashSharp className="deleteButton" style={{cursor:'pointer'}}/>
+                <div style={{display:'flex', alignItems: 'center', cursor:'pointer'}} onClick={()=>onDeleteClick(id)}>
+                    <IoTrashSharp className="deleteButton" style={isFinished?{opacity:'0.5'}:{}}/>
                 </div>
             </div>
         </div>
