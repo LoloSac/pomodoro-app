@@ -1,38 +1,173 @@
-.App {
-  text-align: center;
+*{
+    box-sizing: border-box;
+}
+body{
+    color:white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+main {
+    background-color:rgb(53, 53, 53);
+    width:100vw;
+    height: 97vh;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+section {
+    width: 45%;
+    background-color:rgb(29, 29, 29);
+    height: 90%;
+    border-radius:25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+/*///////////              TODO LIST STYLE              /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+.title {
+    font-weight: bold;
+    font-size: 22pt;
+    margin-top: 4vh;
+}
+.addTaskButton {
+    position: absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    right: 8.3vw;
+    top: 9vh;
+    font-size: 3em;
+    cursor: pointer;
+    user-select: none;
 }
 
-.App-link {
-  color: #61dafb;
+.tasksContainer {
+    overflow-y: scroll;
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    padding-bottom: 5vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tasksContainer::-webkit-scrollbar {
+    width: 0.3vw;
+}
+
+.tasksContainer::-webkit-scrollbar-track-piece:start{
+    margin-top:2vh;
+}
+
+.tasksContainer::-webkit-scrollbar-track-piece:end{
+    margin-bottom:2vh;
+}
+
+.tasksContainer::-webkit-scrollbar-thumb {
+    background-color: rgb(71, 71, 71);
+    border-radius: 25px;
+}
+
+.taskBox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(71, 71, 71);
+    border-radius: 15px;
+    min-height: 15%;
+    height: 30%;
+    width: 80%;
+    margin: 2.5% 0;
+}
+
+.taskBox:last-of-type{
+    margin-bottom: 5vh;
+}
+
+.task{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding:2.5%;
+}
+
+.checkbox{
+    margin:0 8pt 0 8pt;
+    font-size:x-large;
+    user-select: none;
+}
+.deleteButton{
+    justify-self: flex-end;
+    font-size: xx-large;
+    cursor: pointer;
+    user-select: none;
+}
+
+.taskText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 25px;
+    padding: 0 4% 0 4%;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+}
+.taskSubtitle {
+    font-size: medium;
+}
+
+.taskText::-webkit-scrollbar {
+    display: none;
+}
+#todoTitle {
+    margin-bottom: 4vh;
+}
+
+/*///////////////////////  TIMER  ///////////////////////////////////////////////////////////////////////////////////////*/
+#pomodoroTitle {
+    margin-bottom:20vh;
+}
+
+.timer {
+    font-size: 6em;
+    font-weight: bold;
+    margin: 0 0 5vh;
+}
+
+.button {
+    border: .5vh solid white;
+    height: 6vh;
+    width: 10vw;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0 2vw;
+}
+
+
+/*////////////////////  FOOTER  /////////////////////////////////////////////////////////////////////////////////*/
+
+footer{
+    text-align: center;
+    color: rgb(36, 36, 36);
+    width: 100vw;
+    height: 3vh;
+    background-color: rgb(29, 29, 29);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+footer>svg {
+    margin-left: .2vw;
 }
