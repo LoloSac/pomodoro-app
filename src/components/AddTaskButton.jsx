@@ -1,4 +1,3 @@
-import React from 'react'
 import { BsPlus } from 'react-icons/bs'
 
 const AddTaskButton = () => {

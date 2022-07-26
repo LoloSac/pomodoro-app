@@ -78,8 +78,8 @@ section {
     align-items: center;
     background-color: rgb(71, 71, 71);
     border-radius: 15px;
-    min-height: 15%;
-    height: 30%;
+    min-height: 12vh;
+    max-height: 30vh;
     width: 80%;
     margin: 2.5% 0;
 }
@@ -104,7 +104,7 @@ section {
 }
 .deleteButton{
     justify-self: flex-end;
-    font-size: xx-large;
+    font-size: x-large;
     cursor: pointer;
     user-select: none;
 }

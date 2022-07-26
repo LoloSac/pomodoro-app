@@ -3,25 +3,29 @@ import { useState } from 'react'
 import {IoCheckboxOutline, IoSquareOutline} from 'react-icons/io5'
 
 
-const Task = ({taskName, taskDesc}) => {
+const Task = ({taskName, taskDesc, onDeleteClick, id}) => {
     const [isFinished, setIsFinished] = useState(false);
 
     return(
-        <div className="task">
-            <div onClick={()=> setIsFinished(!isFinished)}>
-            {isFinished ? <IoCheckboxOutline className="checkbox" style={{cursor:'pointer', opacity: '0.5'}}/> 
-            : <IoSquareOutline className="checkbox" style={{cursor:'pointer'}}/>}
-            </div>
+        <div className='taskBox'>
+            <div className="task">
+                <div onClick={()=> setIsFinished(!isFinished)} style={{display:'flex', alignItems: 'center'}}>
+                {isFinished ? <IoCheckboxOutline className="checkbox" style={{cursor:'pointer', opacity: '0.5'}}/> 
+                : <IoSquareOutline className="checkbox" style={{cursor:'pointer'}}/>}
+                </div>
 
-            <div className="taskText" style={isFinished ?{textDecoration: 'line-through', opacity: '0.5'}:null}>
-                <p>
-                    <span style={{fontSize:'larger', fontWeight: 'bold'}}>{taskName}</span>
-                    <br/>
-                    <span style={{fontSize:'medium'}}>{taskDesc}</span>
-                </p>
-            </div>
+                <div className="taskText" style={isFinished ?{textDecoration: 'line-through', opacity: '0.5'}:null}>
+                    <p>
+                        <span style={{fontSize:'larger', fontWeight: 'bold'}}>{taskName}</span>
+                        <br/>
+                        <span style={{fontSize:'medium'}}>{taskDesc}</span>
+                    </p>
+                </div>
 
-            <IoTrashSharp className="deleteButton" style={{cursor:'pointer'}}/>
+                <div style={{display:'flex', alignItems: 'center'}} onClick={()=>onDeleteClick(id)}>
+                    <IoTrashSharp className="deleteButton" style={{cursor:'pointer'}}/>
+                </div>
+            </div>
         </div>
     )
     }
