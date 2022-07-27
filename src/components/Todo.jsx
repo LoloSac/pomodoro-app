@@ -7,13 +7,14 @@ const Todo = () => {
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => (task.id !== id)));
-    console.log(id);
   }
 
+  // const addTask = () ={
+  //   return()
+  // }
+
   const [tasks, setTasks] = useState([
-    {
-      title: 'Tarea', 
-      description: 'hacer tarea',
+    { 
       id: 1,
     },
 
@@ -21,6 +22,17 @@ const Todo = () => {
       title: 'Homework',
       description: 'do homework',
       id: 2,
+    },
+
+    {
+      title: 'Biología tarea',
+      id: 3,
+    },
+
+    {
+      title: 'Tarea informática',
+      description: 'terminar video de 2019',
+      id: 4,
     }
   ])
 

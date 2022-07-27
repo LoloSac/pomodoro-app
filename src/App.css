@@ -1,12 +1,32 @@
 *{
     box-sizing: border-box;
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+input{
+    border: none;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+
 body{
     color:white;
 }
+:root{
+    --contrast:rgb(29, 29, 29);
+    --main:rgb(71, 71, 71);
+    --background:rgb(53, 53, 53);
+}
 
 main {
-    background-color:rgb(53, 53, 53);
+    background-color:var(--background);
     width:100vw;
     height: 97vh;
     display:flex;
@@ -17,7 +37,7 @@ main {
 
 section {
     width: 45%;
-    background-color:rgb(29, 29, 29);
+    background-color:var(--contrast);
     height: 90%;
     border-radius:25px;
     display: flex;
@@ -68,7 +88,7 @@ section {
 }
 
 .tasksContainer::-webkit-scrollbar-thumb {
-    background-color: rgb(71, 71, 71);
+    background-color: var(--main);
     border-radius: 25px;
 }
 
@@ -76,10 +96,9 @@ section {
     display: flex;
     flex-direction: row;
     align-items: center;
-    background-color: rgb(71, 71, 71);
+    background-color: var(--main);
     border-radius: 15px;
-    min-height: 12vh;
-    max-height: 30vh;
+    max-height: 50vh;
     width: 80%;
     margin: 2.5% 0;
 }
@@ -115,8 +134,8 @@ section {
     justify-content: center;
     border-radius: 25px;
     padding: 0 4% 0 4%;
-    overflow-y: scroll;
-    height: 100%;
+    overflow-y: hidden;
+    max-height: 40vh;
     width: 100%;
 }
 .taskSubtitle {
@@ -135,6 +154,72 @@ section {
     border: 2px dashed white;
     user-select: none;
 }
+.disabled {
+    opacity: 0.5;
+}
+
+.newTask {
+    padding: 3vh 3vw;
+    width: 100%;
+}
+
+.textArea{
+    background-color: var(--main);
+    padding:0.3em;
+    font-size: 1.5em;
+    height: 1.5em;
+    border-radius: 5px;
+    color:white;
+    width: 95%;
+    align-self: center;
+
+
+}
+
+label{
+    margin:0.5em 1em;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.formButton{
+    margin-top: auto;
+    background-color: var(--main);
+    color: rgba(255, 255, 255, 1);
+    width: 90%;
+    font-size: large;
+    font-weight: bolder;
+    height: 10vh;
+    border-radius: 10px;
+    align-self: center;
+}
+.taskDescInput{
+    height: 20vh;
+}
+
+/*/////////WINDOW///////////////*/
+
+.windowBackground{
+    position: absolute;
+    top:0;
+    left:0;
+    height:100vh;
+    width:100vw;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.window{
+    background-color: var(--contrast);
+    border-radius: 10px;
+    border: 2px solid #222222;
+    height: 80vh;
+    width: 70vw;
+    z-index: 2;
+}
+
 
 /*///////////////////////  TIMER  ///////////////////////////////////////////////////////////////////////////////////////*/
 #pomodoroTitle {
@@ -169,7 +254,7 @@ footer{
     color: rgb(36, 36, 36);
     width: 100vw;
     height: 3vh;
-    background-color: rgb(29, 29, 29);
+    background-color: var(--contrast);
     display:flex;
     align-items: center;
     justify-content: center;

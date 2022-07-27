@@ -10,11 +10,11 @@ const Task = ({taskName, taskDesc, onDeleteClick, id}) => {
         <div className='taskBox'>
             <div className="task">
                 <div onClick={()=> setIsFinished(!isFinished)} style={{display:'flex', alignItems: 'center'}}>
-                {isFinished ? <IoCheckboxOutline className="checkbox" style={{cursor:'pointer', opacity: '0.5'}}/> 
+                {isFinished ? <IoCheckboxOutline className={`checkbox ${isFinished?'disabled':''}`} style={{cursor:'pointer'}}/> 
                 : <IoSquareOutline className="checkbox" style={{cursor:'pointer'}}/>}
                 </div>
 
-                <div className="taskText" style={isFinished ?{textDecoration: 'line-through', opacity: '0.5'}:{}}>
+                <div className={`taskText ${isFinished?'disabled':''} `} style={isFinished ?{textDecoration: 'line-through'}:{}}>
                     <p>
                         <span style={{fontSize:'larger', fontWeight: 'bold'}}>{taskName}</span>
                         <br/>
@@ -23,7 +23,7 @@ const Task = ({taskName, taskDesc, onDeleteClick, id}) => {
                 </div>
 
                 <div style={{display:'flex', alignItems: 'center', cursor:'pointer'}} onClick={()=>onDeleteClick(id)}>
-                    <IoTrashSharp className="deleteButton" style={isFinished?{opacity:'0.5'}:{}}/>
+                    <IoTrashSharp className={`deleteButton ${isFinished?'disabled':''}`}/>
                 </div>
             </div>
         </div>
@@ -31,8 +31,7 @@ const Task = ({taskName, taskDesc, onDeleteClick, id}) => {
     }
 
     Task.defaultProps = {
-        taskName : 'Task',
-        taskDesc: 'Description'
+        taskName : 'Task'
       }
 
 
