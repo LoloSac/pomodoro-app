@@ -7,7 +7,7 @@ const Task = ({taskName, taskDesc, onDeleteClick, id}) => {
     const [isFinished, setIsFinished] = useState(false);
 
     return(
-        <div className='taskBox'>
+        <div className='taskBox' onMouseUp={(e)=>{if (e.button == 1) {onDeleteClick(id)}}}>
             <div className="task">
                 <div onClick={()=> setIsFinished(!isFinished)} style={{display:'flex', alignItems: 'center'}}>
                 {isFinished ? <IoCheckboxOutline className={`checkbox ${isFinished?'disabled':''}`} style={{cursor:'pointer'}}/> 

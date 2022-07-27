@@ -41,9 +41,10 @@ function App() {
   }
 
   const onSubmit = () => {
-    const newTask = NewTask(newTitle, newDesc, tasks.length);
+    const newTask = NewTask(newTitle, newDesc, Math.floor(Math.random()*10000));
     const newTasks = [...tasks, newTask];
     setTasks(newTasks);
+    console.log(newTask.id);
   }
   return (
     <>

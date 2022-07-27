@@ -15,7 +15,7 @@ const NewTaskWindow = ({setIsNewTaskClosed, isNewTaskClosed, newTitle, setNewTit
             </div>
 
             {/* Form */}
-            <form style={{height:'90%'}} action="">
+            <form style={{height:'90%'}} onSubmit={(e) => {e.preventDefault(); onSubmit(); setIsNewTaskClosed(true); setNewTitle(''); setNewDesc('')}}>
                 <legend style={{fontSize:'2em', fontWeight:'bold', marginBottom:'1em'}}>New task</legend>
 
                 <label htmlFor="newName">Task name</label>
@@ -26,7 +26,7 @@ const NewTaskWindow = ({setIsNewTaskClosed, isNewTaskClosed, newTitle, setNewTit
                 <textarea name='newDesc' id='newDesc' className='textArea taskDescInput' placeholder='Describe your task (optional)' maxLength={350}  autoComplete="off"
                 value={newDesc} onChange={(e)=>setNewDesc(e.target.value)}/>
 
-                <input type="button" value="Submit" className='formButton' {...(newTitle !== '' && {onClick: ()=> {onSubmit(); setIsNewTaskClosed(true); setNewTitle(''); setNewDesc('')}})}/>
+                <input type="submit" value="Submit" className='formButton'/>
             </form>
            
         </div>
