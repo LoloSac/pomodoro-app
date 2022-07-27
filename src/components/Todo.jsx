@@ -3,15 +3,11 @@ import Task from './Task';
 import AddTaskButton from './AddTaskButton';
 import { useState } from 'react';
 
-const Todo = () => {
+const Todo = ({setIsNewTaskClosed}) => {
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => (task.id !== id)));
   }
-
-  // const addTask = () ={
-  //   return()
-  // }
 
   const [tasks, setTasks] = useState([
     { 
@@ -38,8 +34,12 @@ const Todo = () => {
 
   return (
     <section>
-      <Title title='Tasks' id='todoTitle'/> 
-      <AddTaskButton/>
+      <Title title='Tasks' id='todoTitle'/>
+
+      <div className="addTaskButton" onClick={()=>(setIsNewTaskClosed(false))}>      
+        <AddTaskButton/>
+      </div> 
+
       <div className='tasksContainer'>
         {tasks.length > 0 
         ? 

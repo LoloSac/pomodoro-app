@@ -8,12 +8,15 @@ textarea:focus,
 button:focus {
     outline: none;
 }
-input{
+textarea, input{
     border: none;
 }
 form{
     display: flex;
     flex-direction: column;
+}
+textarea{
+    resize: none;
 }
 
 body{
@@ -153,13 +156,14 @@ section {
     background-color: transparent;
     border: 2px dashed white;
     user-select: none;
+    height: 15vh;
 }
 .disabled {
     opacity: 0.5;
 }
 
 .newTask {
-    padding: 3vh 3vw;
+    padding: 0 3vw 3vh;
     width: 100%;
 }
 
@@ -167,7 +171,7 @@ section {
     background-color: var(--main);
     padding:0.3em;
     font-size: 1.5em;
-    height: 1.5em;
+    height: 2em;
     border-radius: 5px;
     color:white;
     width: 95%;
@@ -192,6 +196,15 @@ label{
     height: 10vh;
     border-radius: 10px;
     align-self: center;
+    transition: filter 0.15s ease 0.1s;
+}
+.formButton:hover{
+    filter: brightness(0.8);
+    cursor: pointer;
+}
+.taskNameInput{
+    display: flex;
+    align-items: center;
 }
 .taskDescInput{
     height: 20vh;
@@ -218,6 +231,9 @@ label{
     height: 80vh;
     width: 70vw;
     z-index: 2;
+}
+.closed {
+    display:none;
 }
 
 
