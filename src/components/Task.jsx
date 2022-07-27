@@ -16,9 +16,9 @@ const Task = ({taskName, taskDesc, onDeleteClick, id}) => {
 
                 <div className={`taskText ${isFinished?'disabled':''} `} style={isFinished ?{textDecoration: 'line-through'}:{}}>
                     <p>
-                        <span style={{fontSize:'larger', fontWeight: 'bold'}}>{taskName}</span>
+                        <span style={{fontSize:'larger', fontWeight: 'bold', width:'100%'}}>{taskName}</span>
                         <br/>
-                        <span style={{fontSize:'medium'}}>{taskDesc}</span>
+                        <span style={{fontSize:'medium', width:'100%'}}>{taskDesc}</span>
                     </p>
                 </div>
 

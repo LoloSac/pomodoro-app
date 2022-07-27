@@ -3,34 +3,12 @@ import Task from './Task';
 import AddTaskButton from './AddTaskButton';
 import { useState } from 'react';
 
-const Todo = ({setIsNewTaskClosed}) => {
+const Todo = ({setIsNewTaskClosed, tasks, setTasks}) => {
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => (task.id !== id)));
   }
 
-  const [tasks, setTasks] = useState([
-    { 
-      id: 1,
-    },
-
-    {
-      title: 'Homework',
-      description: 'do homework',
-      id: 2,
-    },
-
-    {
-      title: 'Biología tarea',
-      id: 3,
-    },
-
-    {
-      title: 'Tarea informática',
-      description: 'terminar video de 2019',
-      id: 4,
-    }
-  ])
 
   return (
     <section>
