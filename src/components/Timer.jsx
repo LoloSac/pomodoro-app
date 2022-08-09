@@ -1,11 +1,31 @@
-import React from 'react'
-
-
-
+import {useState, useEffect} from "react"
 const Timer = () => {
-  return (
-    <span className='timer'>25:00</span>
-  )
-}
 
-export default Timer
+const timeBuilder = (initialTime, initialDate, dateNow) => {
+  let seconds = (initialTime-(dateNow-initialDate))/1000;
+  return(`${Math.floor(seconds/60)}:${new Intl.NumberFormat('nu', {minimumIntegerDigits:'2'}).format((Math.floor(seconds%60)))}`)
+}
+const [initialTime, setInitialTime] = useState(63*1000);
+const [initialDate, setInitialDate] = useState(0);
+const [dateNow, setDateNow] = useState(0);
+  
+useEffect(() => {
+// temporalmente esto va aca, pero debería ir cuando apretas el botón
+  setInitialDate(Date.now());
+  setDateNow(Date.now());
+
+  const interval = setInterval(() => {
+    setDateNow(Date.now());
+  }, 100);
+
+  return () => {
+    clearInterval(interval);
+  }
+}, [])
+
+return (
+  <span className='timer'>
+    {timeBuilder(initialTime, initialDate, dateNow)}
+  </span>
+)}
+export default Timer;
