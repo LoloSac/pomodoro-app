@@ -1,27 +1,11 @@
-import {useState, useEffect} from "react"
-const Timer = () => {
+import TimerText from "./TimerText";
+const Timer = ({initialTime, initialDate, setInitialDate, dateNow, setDateNow, placeholderTimer, isPaused}) => {
 
 const timeBuilder = (initialTime, initialDate, dateNow) => {
   let seconds = (initialTime-(dateNow-initialDate))/1000;
-  return(seconds >= 0 ? `${Math.floor(seconds/60)}:${new Intl.NumberFormat('nu', {minimumIntegerDigits:'2'}).format((Math.floor(seconds%60)))}` : '0:00')
+  return(seconds >= 0 ? <TimerText seconds={seconds} setDateNow={setDateNow} setInitialDate={setInitialDate} isPaused={isPaused}/> 
+  : placeholderTimer)
 }
-const [initialTime, setInitialTime] = useState(5*1000);
-const [initialDate, setInitialDate] = useState(0);
-const [dateNow, setDateNow] = useState(0);
-  
-useEffect(() => {
-// temporalmente esto va aca, pero debería ir cuando apretas el botón
-  setInitialDate(Date.now());
-  setDateNow(Date.now());
-
-  const interval = setInterval(() => {
-    setDateNow(Date.now());
-  }, 100);
-
-  return () => {
-    clearInterval(interval);
-  }
-}, [])
 
 return (
   <span className='timer'>
@@ -29,7 +13,3 @@ return (
   </span>
 )}
 export default Timer;
-
-// todo: necesito hacer que el setInterval pare cuando el número llegue a 0, por lo que capaz me conviene
-// hacer otro componente que se llame algo como timerTime o algo así y si seconds ≤ 0 que no se renderice más, 
-// parando el setInterval por la cleanup function del useEffect
