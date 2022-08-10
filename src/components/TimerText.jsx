@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 
-const TimerText = ({seconds, setDateNow, setInitialDate, isPaused}) => {
+const TimerText = ({seconds, setDateNow, isPaused}) => {
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -22,7 +22,7 @@ const TimerText = ({seconds, setDateNow, setInitialDate, isPaused}) => {
     
   return (
     <>
-        {Math.floor(seconds/60)}:{new Intl.NumberFormat('nu', {minimumIntegerDigits:'2'}).format((Math.ceil(seconds%60)))}
+        {Math.floor(seconds/60)}:{new Intl.NumberFormat('nu', {minimumIntegerDigits:'2'}).format((seconds%60))}
     </>
   )
 }

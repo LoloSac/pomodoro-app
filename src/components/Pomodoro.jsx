@@ -5,7 +5,7 @@ import Timer from './Timer';
 import Button from './Button';
 
 const Pomodoro = () => {
-  const [initialTime, setInitialTime] = useState(5*1000);
+  const [initialTime, setInitialTime] = useState(70*1000+1);
   const [initialDate, setInitialDate] = useState(0);
   const [dateNow, setDateNow] = useState(0);
   const [placeholderTimer, setPlaceholderTimer] = useState('0:00');
@@ -14,6 +14,8 @@ const Pomodoro = () => {
   const resetDate = () => {
     setDateNow(Date.now());
     setInitialDate(Date.now());
+    setHasStarted(false);
+    setIsPaused(true);
     console.log('reset');
   }
 
