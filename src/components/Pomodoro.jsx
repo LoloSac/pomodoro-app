@@ -5,7 +5,7 @@ import Timer from './Timer';
 import Button from './Button';
 
 const Pomodoro = () => {
-  const [initialTime, setInitialTime] = useState(70*1000+1);
+  const [initialTime, setInitialTime] = useState(1500*1000);
   const [initialDate, setInitialDate] = useState(0);
   const [dateNow, setDateNow] = useState(0);
   const [placeholderTimer, setPlaceholderTimer] = useState('0:00');
