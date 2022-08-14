@@ -1,11 +1,14 @@
-import React from 'react'
+import TimerText from "./TimerText";
+const Timer = ({initialTime, initialDate, setInitialDate, dateNow, setDateNow, placeholderTimer, isPaused}) => {
 
-
-
-const Timer = () => {
-  return (
-    <span className='timer'>25:00</span>
-  )
+const timeBuilder = (initialTime, initialDate, dateNow) => {
+  let seconds = Math.floor((initialTime-(dateNow-initialDate))/1000);
+  return(seconds >= 0 ? <TimerText seconds={seconds} setDateNow={setDateNow} isPaused={isPaused}/> : placeholderTimer)
 }
 
-export default Timer
+return (
+  <span className='timer'>
+    {timeBuilder(initialTime, initialDate, dateNow)}
+  </span>
+)}
+export default Timer;

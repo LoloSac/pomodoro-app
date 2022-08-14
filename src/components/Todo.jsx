@@ -1,7 +1,6 @@
 import Title from './Title';
 import Task from './Task';
 import AddTaskButton from './AddTaskButton';
-import { useState } from 'react';
 
 const Todo = ({setIsNewTaskClosed, tasks, setTasks}) => {
 
@@ -14,7 +13,7 @@ const Todo = ({setIsNewTaskClosed, tasks, setTasks}) => {
     <section>
       <Title title='Tasks' id='todoTitle'/>
 
-      <div className="addTaskButton" onClick={()=>(setIsNewTaskClosed(false))}>      
+      <div className="addTaskButton" onClick={()=>setIsNewTaskClosed(false)}>      
         <AddTaskButton/>
       </div> 
 
