@@ -11,9 +11,6 @@ const TimerText = ({seconds, setDateNow, isPaused}) => {
         if (isPaused) {
             clearInterval(interval);
         }
-        else if (!isPaused) {
-
-        }
 
         return () => {
             clearInterval(interval);

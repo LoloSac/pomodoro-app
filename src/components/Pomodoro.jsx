@@ -11,6 +11,7 @@ const Pomodoro = () => {
   const [placeholderTimer, setPlaceholderTimer] = useState('0:00');
   const [isPaused, setIsPaused] = useState(true);
   const [hasStarted, setHasStarted] = useState(false);
+  const [seconds, setSeconds] = useState(0)
   const resetDate = () => {
     setDateNow(Date.now());
     setInitialDate(Date.now());
@@ -24,7 +25,8 @@ const Pomodoro = () => {
       <Title title='Pomodoro' id='pomodoroTitle'/>
 
       <Timer initialTime={initialTime} initialDate={initialDate} setInitialDate={setInitialDate} 
-      dateNow={dateNow} setDateNow={setDateNow} placeholderTimer={placeholderTimer} isPaused={isPaused}/>
+      dateNow={dateNow} setDateNow={setDateNow} placeholderTimer={placeholderTimer} isPaused={isPaused}
+      seconds={seconds} setSeconds={setSeconds}/>
 
       <div style={{display:'flex', flexDirection:'row'}}>
 
