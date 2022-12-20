@@ -14,7 +14,7 @@ const TimerText = ({seconds, setDateNow, isPaused}) => {
 
         return () => {
             clearInterval(interval);
-    }}, [isPaused])
+    }})
     
     
   return (

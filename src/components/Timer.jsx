@@ -1,14 +1,15 @@
 import TimerText from "./TimerText";
-const Timer = ({initialTime, initialDate, setInitialDate, dateNow, setDateNow, placeholderTimer, isPaused, seconds, setSeconds}) => {
+import { useEffect } from "react";
+const Timer = ({initialTime, initialDate, setInitialDate, dateNow, setDateNow, isPaused, seconds, setSeconds}) => {
+  const placeholderTimer = '0:00';
 
-const timeBuilder = (initialTime, initialDate, dateNow) => {
-  setSeconds(Math.floor((initialTime-(dateNow-initialDate))/1000));
-  return(seconds >= 0 ? <TimerText seconds={seconds} setDateNow={setDateNow} isPaused={isPaused}/> : placeholderTimer)
-}
+  useEffect(() => {
+    setSeconds(Math.floor((initialTime-(dateNow-initialDate))/1000));
+  })
 
 return (
   <span className='timer'>
-    {timeBuilder(initialTime, initialDate, dateNow)}
+    {seconds >= 0 ? <TimerText seconds={seconds} setDateNow={setDateNow} isPaused={isPaused}/> : placeholderTimer}
   </span>
 )}
 export default Timer;
