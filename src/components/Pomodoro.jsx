@@ -27,12 +27,12 @@ const Pomodoro = () => {
 
       <Timer initialTime={initialTime} initialDate={initialDate} setInitialDate={setInitialDate} 
       dateNow={dateNow} setDateNow={setDateNow} isPaused={isPaused}
-      seconds={seconds} setSeconds={setSeconds}/>
+      seconds={seconds} setSeconds={setSeconds} resetDate={resetDate}/>
 
       <div style={{display:'flex', flexDirection:'row'}}>
 
         <Button text={!hasStarted?'Start':isPaused?'resume':'pause'} onClick={()=>{
-          if(isPaused){setInitialTime(seconds*1000);setInitialDate(Date.now()); setDateNow(Date.now())}
+          if(isPaused){setInitialTime(seconds*1000); setInitialDate(Date.now()); setDateNow(Date.now())}
           setIsPaused(!isPaused); 
           if (!hasStarted) {setInitialDate(Date.now()); setDateNow(Date.now()); setHasStarted(true)}
           }}/>
